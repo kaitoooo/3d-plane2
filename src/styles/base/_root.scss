@@ -1,0 +1,7 @@
+@use '../global/global' as g;
+:root {
+    --base-size: #{g.$pc-base-size};
+    @include g.mq(mobile) {
+        --base-size: #{g.$sp-base-size};
+    }
+}

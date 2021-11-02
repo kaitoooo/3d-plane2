@@ -1,0 +1,37 @@
+@use '../setting/size';
+
+// %の取得
+@function get_per($size, $parent: var(--base-size)) {
+    @return calc(#{$size} / #{$parent} * 100%);
+}
+
+// vwの取得
+@function get_vw($size, $viewport: var(--base-size)) {
+    $rate: 100 / $viewport;
+    @return calc(#{$rate} * #{$size} * 1vw);
+}
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@mixin fluid-type($properties, $min-value, $max-value) {
+    @each $property in $properties {
+        #{$property}: $min-value;
+    }
+
+    @media (min-width: size.$min-vw) {
+        @each $property in $properties {
+            #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{size.$min-vw}) / #{strip-unit(size.$max-vw - size.$min-vw)});
+        }
+    }
+
+    @media (min-width: size.$max-vw) {
+        @each $property in $properties {
+            #{$property}: #{get_vw(strip-unit($max-value))};
+        }
+    }
+}

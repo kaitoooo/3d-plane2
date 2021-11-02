@@ -1,0 +1,80 @@
+@use "../global/global" as g;
+
+.mv {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    &__canvas {
+        overflow: hidden;
+    }
+
+    &__title {
+        position: absolute;
+        top: g.get_vw(50);
+        left: g.get_vw(50);
+        transform: translateY(-150%);
+        font-size: g.get_vw(270);
+        font-family: g.$font-all;
+        color: g.$color-black;
+        letter-spacing: 5px;
+        opacity: 0;
+        @include g.mq(mobile) {
+            top: g.get_vw(200);
+            left: g.get_vw(50);
+            font-size: g.get_vw(100);
+        }
+    }
+    &__wrapper {
+        overflow: hidden;
+    }
+    &__links {
+        position: absolute;
+        bottom: g.get_vw(200);
+        left: g.get_vw(50);
+        z-index: map-get(g.$z, 'link');
+        @include g.mq(mobile) {
+            top: auto;
+            bottom: g.get_vw(200);
+            left: g.get_vw(50);
+        }
+    }
+    &__link {
+        display: inline-block;
+        color: g.$color-black;
+        font-family: g.$font-all;
+        font-size: g.get_vw(35);
+        transform: translate3d(0, 100%, 0);
+        margin: 0 g.get_vw(10) 0 0;
+        transition: g.$easeCustom1 0.6s;
+        text-decoration: none;
+        @include g.mq(mobile) {
+            font-size: g.get_vw(40);
+            margin: 0 g.get_vw(15) 0 0;
+        }
+        &::after {
+            content: attr(data-hover);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform: rotateX(90deg);
+            transition: g.$easeCustom1 0.3s;
+            opacity: 0;
+            color: g.$color-blue;
+            height: 0;
+        }
+        &:hover {
+            color: transparent;
+
+            &::after {
+                transform: rotateX(0deg);
+                top: 0;
+                opacity: 1;
+                height: 100%;
+            }
+        }
+        &:visited {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@use '../setting/size';
+
+@mixin mq($breakpoint) {
+    @media all and (max-width: map-get(size.$breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+// IE
+@mixin ie-only {
+    @media all and (-ms-high-contrast: none) {
+        @content;
+    }
+}
+// retina
+@mixin retina-only {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+        @content;
+    }
+}

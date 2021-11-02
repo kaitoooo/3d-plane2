@@ -1,0 +1,62 @@
+{
+  "name": "3d_demo_plane2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --mode=development",
+    "build": "cross-env NODE_ENV=production webpack --mode=production",
+    "fmt": "prettier src/**/*.{scss,js,html} --write"
+  },
+  "private": true,
+  "keywords": [],
+  "author": "kaito takase",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@types/lodash.throttle": "^4.1.6",
+    "@types/smooth-scroll": "^16.1.0",
+    "@types/three": "^0.133.1",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.1.0",
+    "core-js": "^3.9.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.1.3",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "picturefill": "^3.0.3",
+    "postcss": "^8.2.8",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-loader": "^5.2.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "smooth-scroll": "^16.1.3",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "gsap": "^3.8.0",
+    "lodash.throttle": "^4.1.1",
+    "three": "^0.133.1"
+  },
+  "browserslist": [
+    "last 2 version",
+    "ie >= 11"
+  ]
+}

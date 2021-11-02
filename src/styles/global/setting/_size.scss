@@ -1,0 +1,11 @@
+$pc-base-size: 1920;
+$sp-base-size: 750;
+
+$min-vw: 769px;
+$max-vw: 1920px;
+
+$breakpoints: (
+    'mobile': 768px,
+    'tablet': 1024px,
+    'pc': 1440px,
+) !default;
